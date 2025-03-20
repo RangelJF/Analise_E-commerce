@@ -1,0 +1,6 @@
+id_pagamento,id_pedido,metodo_pagamento,status_pagamento
+5001,1001,Cartão de Crédito,Aprovado
+5002,1002,Boleto,Aprovado
+5003,1003,PIX,Pendente
+5004,1004,Cartão de Débito,Aprovado
+5005,1005,PIX,Cancelado
