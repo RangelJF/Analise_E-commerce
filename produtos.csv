@@ -1,0 +1,6 @@
+id_produto,nome_produto,categoria,preco
+101,Notebook,Eletrônicos,3500.0
+102,Smartphone,Eletrônicos,2500.0
+103,Fone de Ouvido,Acessórios,200.0
+104,Monitor,Eletrônicos,1200.0
+105,Teclado,Acessórios,150.0

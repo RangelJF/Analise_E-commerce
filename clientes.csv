@@ -1,0 +1,6 @@
+id_cliente,nome,email,cidade,data_cadastro
+1,João Silva,joao@email.com,São Paulo,2024-01-10
+2,Maria Oliveira,maria@email.com,Rio de Janeiro,2024-02-15
+3,Carlos Santos,carlos@email.com,Belo Horizonte,2024-02-20
+4,Ana Souza,ana@email.com,Curitiba,2024-03-05
+5,Pedro Lima,pedro@email.com,Porto Alegre,2024-03-10
