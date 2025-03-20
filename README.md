@@ -14,12 +14,21 @@ Este projeto tem como objetivo demonstrar como construir uma análise de vendas 
 2. Execute o script `create_tables.sql` para criar as tabelas.
 3. Execute o script `insert_data.sql` para inserir os dados fictícios.
 
-## Conectando no Power BI
+## Arquivos CSV
 
-1. Após executar os scripts SQL, exporte os dados das tabelas como arquivos CSV ou conecte diretamente ao seu banco de dados no Power BI.
-2. Use o Power BI para criar dashboards com os dados de vendas, como gráficos de vendas por produto, análise de métodos de pagamento, entre outros.
+Os seguintes arquivos CSV foram incluídos para facilitar a análise de dados no Power BI:
 
-## Tecnologias Utilizadas
+- `clientes.csv`: Contém os dados dos clientes.
+- `produtos.csv`: Contém informações sobre os produtos.
+- `pedidos.csv`: Contém informações sobre os pedidos realizados.
+- `itens_pedido.csv`: Contém informações sobre os itens de cada pedido.
+- `pagamentos.csv`: Contém informações sobre os pagamentos feitos.
 
-- SQL (MySQL/PostgreSQL)
-- Power BI
+### Como Usar os Arquivos CSV no Power BI
+
+1. Baixe os arquivos CSV da pasta `/data` do repositório.
+2. No Power BI, clique em "Obter Dados" e escolha a opção "Arquivo CSV".
+3. Selecione os arquivos desejados e faça a importação.
+4. Crie relacionamentos entre as tabelas (por exemplo, `clientes.id_cliente` com `pedidos.id_cliente`).
+5. Comece a análise dos dados criando gráficos, relatórios e dashboards.
+
