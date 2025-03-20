@@ -1,4 +1,4 @@
-Análise de Vendas de E-commerce
+### Análise de Vendas de E-commerce
 
 Este projeto tem como objetivo demonstrar como construir uma análise de vendas para um e-commerce. A análise foi realizada utilizando o Power BI, que conecta dados de vendas simulados a partir de um banco de dados fictício.
 
