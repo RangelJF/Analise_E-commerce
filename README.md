@@ -1,34 +1,75 @@
-# Análise de Vendas de E-commerce
+# 📦 Banco de Dados para E-commerce
 
-Este projeto tem como objetivo demonstrar como construir uma análise de vendas para um e-commerce. A análise foi realizada utilizando o Power BI, que conecta dados de vendas simulados a partir de um banco de dados fictício.
+Este repositório contém o script SQL para a criação de um banco de dados de um e-commerce, incluindo tabelas, inserção de dados fictícios e consultas de análise de padrão de compras.
 
-## Estrutura do Repositório
+## 📌 Funcionalidades
+- Criação de um banco de dados `ecommerce` com tabelas para clientes, produtos, pedidos, itens de pedidos e pagamentos.
+- Inserção de dados fictícios para testes.
+- Consultas SQL para análise de padrões de compra dos clientes, incluindo:
+  - Frequência de compras por cliente.
+  - Produtos mais comprados.
+  - Valor médio dos pedidos.
+  - Tempo médio entre compras dos clientes.
 
-- `/database/`: Contém os scripts SQL para criação das tabelas e inserção de dados fictícios.
-  - `create_tables.sql`: Criação do banco de dados e das tabelas.
-  - `insert_data.sql`: Inserção de dados fictícios para simulação de vendas.
-  
-## Como Rodar os Scripts
+## 🛠 Como Rodar o Projeto
 
-1. Crie um banco de dados no seu ambiente de SQL (MySQL, PostgreSQL, etc.).
-2. Execute o script `create_tables.sql` para criar as tabelas.
-3. Execute o script `insert_data.sql` para inserir os dados fictícios.
+### 1️⃣ **Requisitos**
+- Um banco de dados MySQL ou PostgreSQL instalado.
+- Acesso ao terminal do banco de dados.
 
-## Arquivos CSV
+### 2️⃣ **Executando os Scripts**
+Para configurar o banco de dados do zero, basta rodar:
+```sql
+SOURCE database/setup.sql;
+```
+Isso irá:
+1. Criar o banco de dados e as tabelas (`create_tables.sql`).
+2. Inserir dados fictícios (`insert_data.sql`).
+3. Executar consultas para análise de padrão de compras (`queries.sql`).
 
-Os seguintes arquivos CSV foram incluídos para facilitar a análise de dados no Power BI:
+Se quiser rodar os scripts separadamente:
+```sql
+SOURCE database/create_tables.sql;  -- Criação das tabelas
+SOURCE database/insert_data.sql;    -- Inserção de dados fictícios
+SOURCE database/queries.sql;        -- Executa consultas de análise
+```
 
-- `clientes.csv`: Contém os dados dos clientes.
-- `produtos.csv`: Contém informações sobre os produtos.
-- `pedidos.csv`: Contém informações sobre os pedidos realizados.
-- `itens_pedido.csv`: Contém informações sobre os itens de cada pedido.
-- `pagamentos.csv`: Contém informações sobre os pagamentos feitos.
+### 3️⃣ **Rodando via Terminal**
+Caso esteja usando MySQL via terminal, rode:
+```sh
+mysql -u seu_usuario -p < database/setup.sql
+```
+Para PostgreSQL:
+```sh
+psql -U seu_usuario -d ecommerce -f database/setup.sql
+```
 
-### Como Usar os Arquivos CSV no Power BI
+## 🔍 Exemplo de Consultas
 
-1. Baixe os arquivos CSV da pasta `/data` do repositório.
-2. No Power BI, clique em "Obter Dados" e escolha a opção "Arquivo CSV".
-3. Selecione os arquivos desejados e faça a importação.
-4. Crie relacionamentos entre as tabelas (por exemplo, `clientes.id_cliente` com `pedidos.id_cliente`).
-5. Comece a análise dos dados criando gráficos, relatórios e dashboards.
+- **Frequência de compras por cliente:**
+  ```sql
+  SELECT id_cliente, COUNT(id_pedido) AS total_pedidos
+  FROM pedidos
+  GROUP BY id_cliente
+  ORDER BY total_pedidos DESC;
+  ```
+
+- **Produtos mais vendidos:**
+  ```sql
+  SELECT p.nome, SUM(i.quantidade) AS total_vendido
+  FROM itens_pedido i
+  JOIN produtos p ON i.id_produto = p.id_produto
+  GROUP BY p.nome
+  ORDER BY total_vendido DESC;
+  ```
+
+- **Média de valor dos pedidos:**
+  ```sql
+  SELECT p.id_pedido, SUM(i.quantidade * i.preco_unitario) AS valor_total
+  FROM itens_pedido i
+  JOIN pedidos p ON i.id_pedido = p.id_pedido
+  GROUP BY p.id_pedido;
+  ```
+
+
 
