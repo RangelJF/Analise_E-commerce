@@ -1,4 +1,4 @@
-# 📦 Banco de Dados para E-commerce
+# 📦 Ánalise com Bnaco de Dados para E-commerce
 
 Este repositório estrutura um banco de dados de e-commerce e realiza consultas úteis para análise de vendas, frequência de clientes e comportamento de compra. Ele pode ser usado para entender quais clientes compram mais, quais produtos são mais vendidos e a recorrência de compras.
 
